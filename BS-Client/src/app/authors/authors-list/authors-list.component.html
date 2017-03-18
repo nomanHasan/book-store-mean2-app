@@ -1,0 +1,19 @@
+<div class="row">
+  <button class="btn bluebutton" (click)="addAuthor()"><i class="fa fa-user-plus fa-2x">Add Author</i></button>
+</div>
+<div class="row">
+  <!--<button class="btn btn-default" (click)="toggleAnimation()" >Toggle Animation</button>-->
+  <div *ngFor="let author of authors; let i = index">
+    <app-author (dblclick)="gotoAuthor(author._id)" [@slideInOut]="listState" [randPhoto]="getRandPhoto(i)"  [author] = "author"></app-author>
+  </div>
+</div>
+<div class="row" *ngIf="authors">
+  <div class="col-md-4"></div>
+  <div class="col-md-4"><pagination [totalItems]="totalItems" [itemsPerPage]="9" [maxSize]="7" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)"></pagination></div>
+  <div class="col-md-4"></div>
+</div>
+<div bsModal #childModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <app-add-author (hideModal) = "hideModal($event)"></app-add-author>
+  </div>
+</div>

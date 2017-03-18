@@ -1,0 +1,14 @@
+<div class="square" *ngIf="book" [ngStyle]="{'background-image': 'url(' + coverImage + ')', 'background-size': '300px 300px' }">
+  <div class="content">
+    <h4 class="name" [ngStyle]="{'background-color': white}">{{book.title}} </h4>
+    <!--<img *ngIf="book.coverImage" src="{{coverImage}}" class="img-circle" width="100px" height="100px" alt="">-->
+    <ul class="list-group">
+      <!--<li class="list-group-item" *ngIf="book.isbn"><b>ISBN</b> {{book.isbn}}</li>-->
+      <li class="list-group-item" *ngIf="book.price"><b>Price </b> ${{book.price}}</li>
+      <li class="list-group-item" *ngIf="book.pub_date"><b>Publication Date </b> {{date}}</li>
+      <!--<li class="list-group-item" *ngIf="book.pub_house"><b>Pulication House </b> {{book.pub_house}}</li>-->
+    </ul>
+  </div>
+</div>
+
+<!--[ngStyle]="{'background-image': 'url(' + coverImage + ')', 'background-size': '300px 300px' }"-->

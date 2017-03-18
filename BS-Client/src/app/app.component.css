@@ -1,0 +1,18 @@
+.top{
+    text-align: center;
+}
+
+.mainWindow{
+    padding-left: 25px
+}
+
+
+.bluebutton {
+    color: #fff;
+    background-color: #1a2580;
+    border-color: #1a2580;
+}
+.btn.bluebutton:hover {
+    border-radius: 15px;
+    color: white;
+}

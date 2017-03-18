@@ -1,0 +1,11 @@
+.modal-content{
+    background-color: #1a2580;
+    color: white;
+}
+
+th.text-center {
+    color: black;
+}
+.well.well-sm.bg-faded.p-a.card {
+    background-color: rgb(26, 37, 128);
+}

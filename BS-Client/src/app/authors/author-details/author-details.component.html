@@ -1,0 +1,80 @@
+<ngb-tabset #t="ngbTabset">
+  <ngb-tab id="foo">
+    <template ngbTabTitle><h4>Author Details</h4></template>
+    <template ngbTabContent>
+      <div *ngIf="author">
+        <div class="row">
+          <div *ngIf="author.firstName" class="col-md-4 info">
+            <b>First Name </b> <br> {{author.firstName}}
+          </div>
+          <div *ngIf="author.lastName" class="col-md-4 info">
+            <b>Last Name</b> <br> {{author.lastName}}
+          </div>
+          <div *ngIf="author.initials" class="col-md-4 info">
+            <b>Initials</b> <br> {{author.initials}}
+          </div>
+        </div>
+        <div class="row">
+          <div *ngIf="author.address" class="col-md-4 info">
+             <b>Address</b> <br> {{author.address}}
+          </div>
+          <div *ngIf="author.zip_code" class="col-md-4 info">
+            <b>Zip Code</b> <br> {{author.zip_code}}
+          </div>
+          <div *ngIf="author.country" class="col-md-4 info">
+            <b>Country</b> <br> {{author.country}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <a href="/authors/list" class="btn btn-default" >Go Back</a>
+          </div>
+          <div class="col-md-4">
+          </div>
+          <div class="col-md-4">          
+            
+            <button class="btn bluebutton" (click)="editAuthor()"><i class="fa fa-user fa-2x"> Edit Author</i></button>
+          </div>
+        </div>
+      </div>
+    </template>
+  </ngb-tab>
+  <ngb-tab id="bar">
+    <template ngbTabTitle><h4>Author Books</h4></template>
+    <template ngbTabContent>
+      <div class="row">
+        <button class="btn bluebutton" (click)="addBook()">
+          <span class="fa fa-plus-square fa-2x"> Add Book</span>
+        </button>
+      </div>
+      <div class="row">
+        <div *ngFor="let book of books">
+          <app-book (dblclick)="editBooks(book)" [book]="book" ></app-book>
+        </div>
+      </div>
+      <div class="row" *ngIf="books">
+        <div class="col-md-4"></div>
+        <div class="col-md-4"><pagination [totalItems]="totalItems" [itemsPerPage]="9" [maxSize]="7" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)"></pagination></div>
+        <div class="col-md-4"></div>
+      </div>
+    </template>
+  </ngb-tab>
+</ngb-tabset>
+
+<div bsModal #childModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <app-edit-author *ngIf="author" [newAuthor]="author" (hideModal) = "hideModal($event)"></app-edit-author>
+  </div>
+</div>
+
+<div bsModal #addBookModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <app-add-book *ngIf="newBook" [newBook]="newBook" (hideModal) = "hideAddBookModal($event)"></app-add-book>
+  </div>
+</div>
+
+<div bsModal #editBookModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <app-edit-book *ngIf="editBook" [newBook]="editBook" (hideModal) = "hideEditBookModal($event)"></app-edit-book>
+  </div>
+</div>

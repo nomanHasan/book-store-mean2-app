@@ -1,0 +1,9 @@
+<div class="square" *ngIf="author" [ngStyle]="{'background-image': 'url(' + profilePhoto + ')', 'background-size': '300px 300px' }">
+  <div class="content">
+    <h4 class="name">{{author.firstName}} {{author.lastName}}</h4>
+    <p *ngIf="author.initials"><b>Initials</b> {{author.initials}}</p>
+    <p *ngIf="author.address"><b>Adress</b> {{author.address}}</p>
+    <p *ngIf="author.zip_code"><b>Zip Code</b> {{author.zip_code}}</p>
+    <p *ngIf="author.country"><b>Country</b> {{author.country}}</p>
+  </div>
+</div>

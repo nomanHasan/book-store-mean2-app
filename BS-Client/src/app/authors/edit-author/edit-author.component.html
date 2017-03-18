@@ -1,0 +1,108 @@
+<div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Edit Author</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="hideChildModal()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal"  #registerForm="ngForm" (ngSubmit)="onSubmit()">
+        <fieldset>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+              <label class="col-md-4 control-label" for="name">First Name</label>
+              <div class="col-md-8">
+                <input name="firstName" type="text" placeholder="  First Name" [(ngModel)]="newAuthor.firstName" class="form-control input-md" required="  First Name is required "/>
+                <span class="help-block">  First Name</span>
+              </div>
+            </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+              <label class="col-md-4 control-label" for="name">Last Name</label>
+              <div class="col-md-8">
+                <input name="lastName" type="text" placeholder="  Last Name" [(ngModel)]="newAuthor.lastName" class="form-control input-md" required="  Last Name is required "/>
+                <span class="help-block">  Last Name</span>
+              </div>
+            </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+              <label class="col-md-4 control-label" for="name">Initials</label>
+              <div class="col-md-8">
+                <input name="initials" type="text" placeholder="  Initials" [(ngModel)]="newAuthor.initials" class="form-control input-md" />
+                <span class="help-block">  Initials</span>
+              </div>
+            </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+              <label class="col-md-4 control-label" for="name">Address</label>
+              <div class="col-md-8">
+                <input name="address" type="text" placeholder="  Address" [(ngModel)]="newAuthor.address" class="form-control input-md" />
+                <span class="help-block">  Address</span>
+              </div>
+            </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+              <label class="col-md-4 control-label" for="name">Profile Image</label>
+              <div class="col-md-8" *ngIf="uploader">
+                <input type="file" name="ng2FileSelect" ng2FileSelect [uploader]="uploader" />
+                <span class="help-block">Profile Image</span>
+              </div>
+            </div>
+          </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+              <label class="col-md-4 control-label" for="name">Zip Code</label>
+              <div class="col-md-8">
+                <input name="zip_code" type="text" placeholder="  Zip Code" [(ngModel)]="newAuthor.zip_code" class="form-control input-md" />
+                <span class="help-block">  Zip Code</span>
+              </div>
+            </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+              <label class="col-md-4 control-label" for="name">Country</label>
+              <div class="col-md-8">
+                <input name="country" type="text" placeholder="  Country" [(ngModel)]="newAuthor.country" class="form-control input-md" />
+                <span class="help-block">  Country</span>
+              </div>
+            </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="save"></label>
+                <div class="col-md-8">
+                  <button id="add" name="save" class="btn btn-default" type="submit">Edit Author</button>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="cancel"></label>
+                <div class="col-md-8">
+                  <button id="cancel" name="cancel" class="btn btn-default" (click)="hideChildModal()">Cancel</button>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+      </fieldset>
+    </form>
+  </div>

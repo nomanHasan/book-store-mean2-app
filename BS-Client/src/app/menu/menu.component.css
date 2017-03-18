@@ -1,0 +1,33 @@
+:host {
+  background: #1a2580;
+  color: #fff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: auto;
+  bottom: 0;
+  width: 20%;
+  min-width: 250px;
+  z-index: 9999;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+uil.list-group {
+  font-size: 18px;
+  line-height: 3;
+  font-weight: 400;
+  padding-top: 50px;
+  list-style: none;
+}
+
+.list-group-item{
+  background: rgba(0, 0, 0, 0);
+}
+
+.button{
+  background: rgba(0, 0, 0, 0);
+}
+a{
+  color: #ffffff;
+}
+

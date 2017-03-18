@@ -1,0 +1,109 @@
+<div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Edit Book</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="hideChildModal()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal"  #registerForm="ngForm">
+        <fieldset>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+              <label class="col-md-4 control-label" for="name">Title</label>
+              <div class="col-md-8">
+                <input name="title" type="text" placeholder="  First Name" [(ngModel)]=" newBook.title" class="form-control input-md" required="Title is required "/>
+                <span class="help-block">  Title</span>
+              </div>
+            </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+              <label class="col-md-4 control-label" for="name">ISBN</label>
+              <div class="col-md-8">
+                <input name="isbn" type="number" placeholder="  ISBN" [(ngModel)]=" newBook.isbn" class="form-control input-md" />
+                <span class="help-block">  ISBN</span>
+              </div>
+            </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+              <label class="col-md-4 control-label" for="name">Publication Date</label>
+              <div class="col-md-8">
+                <div class="input-group">
+                  <input class="form-control" placeholder="yyyy-mm-dd"
+                      name="dp" [ngModel]="newBook.pub_date" readonly >
+                <div class="input-group-addon" (click)="toggleCalendar()" style="cursor: pointer;" >
+                  <i class="fa fa-calendar"></i>
+                </div>
+              </div>
+              <div *ngIf="showCalendar" class="input-group">
+                <div style="display:inline-block; min-height:290px;">
+                    <datepicker  name="pub_date" [(ngModel)]="newBook.pub_date" ></datepicker>
+                  </div>
+                  <span class="help-block">  Publication Date is <b *ngIf="newBook.pub_date">{{newBook.pub_date}}</b> </span>
+              </div>
+            </div>
+            </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+              <label class="col-md-4 control-label" for="name">Price</label>
+              <div class="col-md-8">
+                <input name="price" type="number" placeholder="  Price" [(ngModel)]=" newBook.price" class="form-control input-md" />
+                <span class="help-block">  Price</span>
+              </div>
+            </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+              <label class="col-md-4 control-label" for="name">Publication House</label>
+              <div class="col-md-8">
+                <input name="pub_house" type="text" placeholder="  Publication House" [(ngModel)]=" newBook.pub_house" class="form-control input-md" />
+                <span class="help-block">  Publication House</span>
+              </div>
+            </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+              <label class="col-md-4 control-label" for="name">Cover Image</label>
+              <div class="col-md-8" *ngIf="uploader">
+                <input type="file" name="ng2FileSelect" ng2FileSelect [uploader]="uploader" />
+                <span class="help-block">Cover Image</span>
+              </div>
+            </div>
+            <!--<ul>
+              <li *ngFor="let item of uploader.queue">{{item.file.name}} <button class="btn btn-default" (click)="item.upload()" >Upload Cover Image</button> </li>
+            </ul>-->
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="save"></label>
+                <div class="col-md-8">
+                  <button id="add" name="save" class="btn btn-default" (click)="onSubmit()" type="submit">Edit Book</button>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="cancel"></label>
+                <div class="col-md-8">
+                  <button id="cancel" name="cancel" class="btn btn-default" (click)="hideChildModal()">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+      </fieldset>
+    </form>
+  </div>

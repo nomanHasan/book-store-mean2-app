@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    </div>
+  <div class="col-md-4">
+    <button class="btn bluebutton" popver="Click this to toggle the sliding menu" (click)="toggle()">
+      <i class="fa fa-bars fa-4x" aria-hidden="true"></i>
+  </button>  
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <h2>MENU</h2>
+  </div>
+  <div class="col-md-4"></div>
+</div>
+<ul class="list-group">
+  <li class="list-group-item"><a routerLink='/authors' ><i class="fa fa-address-book-o"> Authors</i></a></li>
+  <li class="list-group-item"><a routerLink='/books' ><i class="fa fa-book"> Books - <small>not developed</small></i></a></li>
+</ul>
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-4">
+    <h3>Instructions</h3>
+  </div>
+  <div class="col-md-4"></div>
+</div>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10"><p><small>It is implemented through a Shared Service. Where unrelated components can interact with each other through it.</small>  
+  </p></div>
+</div>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <li [innerHtml]="missionService.getInstructions()"></li>
+  </div>
+  <div class="col-md-2"></div>
+</div>

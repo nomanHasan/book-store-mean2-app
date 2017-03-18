@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+
+.bluebutton {
+    color: #fff;
+    background-color: #1a2580;
+    border-color: #1a2580;
+}
+
+.btn.bluebutton:hover {
+    border-radius: 15px;
+    color: white;
+}
