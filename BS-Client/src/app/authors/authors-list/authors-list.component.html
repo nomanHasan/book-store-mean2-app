@@ -1,5 +1,12 @@
 <div class="row">
-  <button class="btn bluebutton" (click)="addAuthor()"><i class="fa fa-user-plus fa-2x">Add Author</i></button>
+  <div class="col-md-4"><button class="btn bluebutton" (click)="addAuthor()"><i class="fa fa-user-plus fa-2x">Add Author</i></button></div>
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <select [ngModel]="limit" (ngModelChange)="ippChage($event)" name="ItemPerPage">
+        <option [value]="i" *ngFor="let i of itemPerPageArray">{{i}}</option>
+    </select>
+    <b>Items per Page</b>
+  </div>
 </div>
 <div class="row">
   <!--<button class="btn btn-default" (click)="toggleAnimation()" >Toggle Animation</button>-->
@@ -9,7 +16,7 @@
 </div>
 <div class="row" *ngIf="authors">
   <div class="col-md-4"></div>
-  <div class="col-md-4"><pagination [totalItems]="totalItems" [itemsPerPage]="9" [maxSize]="7" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)"></pagination></div>
+  <div class="col-md-4"><pagination [totalItems]="totalItems" [itemsPerPage]="limit" [maxSize]="7" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)"></pagination></div>
   <div class="col-md-4"></div>
 </div>
 <div bsModal #childModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">

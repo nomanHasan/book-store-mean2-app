@@ -61,8 +61,14 @@ export class AuthorsListComponent implements OnInit {
   public currentPage: number = 1;
   public limit: number = 9;
   public pages: number;
+  public itemPerPageArray: number[] = [3, 6, 9, 15, 21, 30, 45, 60];
 
   instruct = "Here you can Add Authors by clicking the Add button.</li><li> Authors Details page can be accessed by Double clicking the Author.</li><li> Here first time random pictures are assigned to each authors for visualization. </li><li> Appropriate Images can be assigned when editing the Author.";
+
+  ippChage(event: number){
+    this.limit = event;
+    this.getAuthors();
+  }
 
   ngOnInit() {
     this.listState = 'in';
@@ -86,8 +92,8 @@ export class AuthorsListComponent implements OnInit {
    public pageChanged(event: any): void {
     this.currentPage = event.page;
     this.getAuthors();
-    console.log('Page changed to: ' + event.page);
-    console.log('Number items per page: ' + event.itemsPerPage);
+    // console.log('Page changed to: ' + event.page);
+    // console.log('Number items per page: ' + event.itemsPerPage);
   }
 
   toggleAnimation(){
