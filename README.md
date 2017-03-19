@@ -7,13 +7,13 @@ This is a Web App built with the MEAN Stack 2.0.
 ### Database Setup
 
 1. Start *mongod.exe*
-2. Make sure the Database us running at port 27017.
+2. Make sure the Database is running at port 27017.
 
 The Mongo URI set at the server is *mongodb://127.0.0.1:27017/bs_store*
 
 ### Server Setup
 
-1. Open BS-Server *mkdir BS-Server*
+1. Open BS-Server *cd BS-Server*
 2. run *npm install*
 3. run *npm start*
 
@@ -21,7 +21,7 @@ The Server will run at *http://localhost:3000*. ( Assuming *nodemon* is installe
 
 ### Client Setup
 
-1. Open BS-Client *mkdir BS-Client*
+1. Open BS-Client *cd BS-Client*
 2. run *npm install*
 3. run *npm start*
 
