@@ -52,6 +52,7 @@ export class AuthorDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.missionService.setInstructions("Images can be uploaded for every author by clicking the Edit Author Button. Author Books tab contains the books of the author.");
+    this.missionService.appendInstructions("Books can be edited by Double Clicking on it.");
     this.route.params
     .subscribe(
       (params: Params)=>{
@@ -68,6 +69,7 @@ export class AuthorDetailsComponent implements OnInit {
 
   editAuthor(){
     this.missionService.setInstructions("Click the choose file button to change upload an Profile Image.");
+    this.missionService.appendInstructions("You can re-upload a Image. The Old Image will be automatically deleted once you reupload.")
     this.childModal.show();
   }
 
@@ -101,7 +103,7 @@ export class AuthorDetailsComponent implements OnInit {
   }
 
   hideAddBookModal(){
-    this.missionService.setInstructions("Images can be uploaded for each Books.");
+    this.missionService.appendInstructions("Books can be edited by Double Clicking on it.");
     this.addBookModal.hide();
     this.getBooks();
   }

@@ -4,26 +4,35 @@
     <template ngbTabContent>
       <div *ngIf="author">
         <div class="row">
-          <div *ngIf="author.firstName" class="col-md-4 info">
-            <b>First Name </b> <br> {{author.firstName}}
+          
+        </div>
+        <div  class="row">
+          <div  class="col-md-4 info">
+            <div *ngIf="author.firstName" class="info">
+              <b>First Name </b> <br> {{author.firstName}}
+            </div>
+            <div *ngIf="author.lastName" class="info">
+              <b>Last Name</b> <br> {{author.lastName}}
+            </div>
+            <div *ngIf="author.initials" class="info">
+              <b>Initials</b> <br> {{author.initials}}
+            </div>
+             <div *ngIf="author.address" class="info">
+               <b>Address</b> <br> {{author.address}}
+             </div>
+             <div *ngIf="author.zip_code" class="info">
+              <b>Zip Code</b> <br> {{author.zip_code}}
+            </div>
+             <div *ngIf="author.country" class="info">
+              <b>Country</b> <br> {{author.country}}
+            </div>
           </div>
-          <div *ngIf="author.lastName" class="col-md-4 info">
-            <b>Last Name</b> <br> {{author.lastName}}
-          </div>
-          <div *ngIf="author.initials" class="col-md-4 info">
-            <b>Initials</b> <br> {{author.initials}}
+          <div *ngIf="author.profilePhoto" class="col-md-6">
+            <img src="/images/{{author.profilePhoto}}" class="img-rounded" width="350px" height="350px">
           </div>
         </div>
         <div class="row">
-          <div *ngIf="author.address" class="col-md-4 info">
-             <b>Address</b> <br> {{author.address}}
-          </div>
-          <div *ngIf="author.zip_code" class="col-md-4 info">
-            <b>Zip Code</b> <br> {{author.zip_code}}
-          </div>
-          <div *ngIf="author.country" class="col-md-4 info">
-            <b>Country</b> <br> {{author.country}}
-          </div>
+          
         </div>
         <div class="row">
           <div class="col-md-4">

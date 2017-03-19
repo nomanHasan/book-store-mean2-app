@@ -1,5 +1,5 @@
 var Book = require('../models/book');
-
+var fs = require("fs");
 
 exports.getBooks = function(query, page, limit, next){
     Book.paginate(query, {populate: {path: 'author', select: 'firstName lastName'}, page:page, limit: limit}, function(err, results){
@@ -52,11 +52,18 @@ exports.updateBookById = function(id, newBook, next){
 }
 
 exports.updateBookImage = function(id, filename, next){
-    Book.update({_id: id}, {coverImage: filename}, function(err){
-        if(err){
-            console.log(err);
-            return next(err);
+
+    Book.findById(id, function(err, book){
+        if(book.coverImage){
+            fs.unlinkSync(__dirname+"/../public/images/"+book.coverImage);
         }
-        return next(null);
+        book.coverImage = filename;
+        book.save(function(err){
+            if(err){
+                console.log(err);
+                return next(err);
+            }
+            return next(null);
+        })
     })
 }

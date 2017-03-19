@@ -2,6 +2,7 @@ import { Book } from '../../models/book';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import {BookService} from '../../services/book-service';
+import {MissionService} from '../../services/mission-service';
 
 //Importing MOmentJS
 import * as moment from 'moment';
@@ -18,7 +19,8 @@ import {FileSelectDirective, FileUploader } from 'ng2-file-upload/ng2-file-uploa
 export class EditBookComponent implements OnInit {
 
   constructor(
-    private bookService: BookService
+    private bookService: BookService,
+    private missionService: MissionService
   ) { }
 
   @Input() newBook: Book;
@@ -32,6 +34,7 @@ export class EditBookComponent implements OnInit {
   ngOnInit() {
     var URL = '/api/books/upload/' + this.newBook._id;
     this.uploader = new FileUploader({url: URL});
+    this.missionService.appendInstructions("You can re-upload a Image. The Old Image will be automatically deleted once you reupload.")
   }
 
   onSubmit(){

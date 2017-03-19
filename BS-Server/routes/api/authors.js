@@ -5,6 +5,9 @@ var Author = require('../../models/author');
 
 var authorService = require("../../services/author-service");
 
+var fs = require("fs");
+
+
 //Setting up Image Uploader
 var multer = require("multer");
 var publicImage = './public/images';
@@ -26,6 +29,7 @@ var upload = multer({ storage: storage }).single('file');
 router.get('/', function(req, res, next){
     var page = Number(req.query.page);
     var limit = Number(req.query.limit);
+
 
     if(!page>0)page = 1;
     if(!limit>0)limit = 10;

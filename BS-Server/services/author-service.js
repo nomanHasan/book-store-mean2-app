@@ -1,5 +1,8 @@
 var Author = require("../models/author");
 
+
+var fs = require("fs");
+
 exports.getAuthors = function(page, limit, next){
     Author.paginate({}, {page: page, limit: limit}, function(err, results){
         if(err){
@@ -39,11 +42,18 @@ exports.updateAuthorById = function(id, author, next){
 }
 
 exports.updateAuthorImage = function(id, filename, next){
-    Author.update({_id: id}, {profilePhoto: filename}, function(err){
-        if(err){
-            console.log(err);
-            return next(err);
+
+    Author.findById(id, function(err, author){
+        if(author.profilePhoto){
+            fs.unlinkSync(__dirname+"/../public/images/"+author.profilePhoto);
         }
-        return next(null);
+        author.profilePhoto = filename;
+        author.save(function(err){
+            if(err){
+                console.log(err);
+                return next(err);
+            }
+            return next(null);
+        })
     })
 }

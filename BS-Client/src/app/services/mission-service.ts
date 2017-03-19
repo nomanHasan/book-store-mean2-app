@@ -15,4 +15,7 @@ export class MissionService{
     getInstructions(){
         return this.instruction;
     }
+    appendInstructions(ins: string){
+        this.instruction += "<li>"+ins+"</li>";
+    }
 }
