@@ -36,6 +36,7 @@ The webpack-dev-server will run at *http://localhost:4200*. And the client serve
 ![alt text](screenshots/bs2.jpg "BS")
 ![alt text](screenshots/bs3.jpg "BS")
 ![alt text](screenshots/bs4.jpg "BS")
+![alt text](screenshots/bs8.jpg "BS")
 ![alt text](screenshots/bs5.jpg "BS")
 ![alt text](screenshots/bs6.jpg "BS")
 ![alt text](screenshots/bs7.jpg "BS")
