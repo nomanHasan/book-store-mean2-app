@@ -38,13 +38,13 @@ The Server will run at *http://localhost:3000*. ( Assuming *nodemon* is installe
 
 1. Open BS-Client *cd BS-Client*
 2. Install dependencies *npm install*
-3. Deploy the server *npm run deploy*
+3. Run the server *npm start*
 
 ---
 ```bash
 cd BS-Client
 npm install
-npm run deploy
+npm start
 ```
 ---
 
